@@ -1,3 +1,47 @@
+// import { useState } from 'react';
+
+// import PropTypes from 'prop-types';
+
+// import * as S from './ImageGalleryItem.styled';
+// import { Modal } from 'components/Modal/Modal';
+
+// export function ImageGalleryItem(showModal) {
+//   const [showModal, setShowModal] = useState(false);
+
+//   const toggleModal = (showModal) => {
+//       showModal===!showModal
+//     };
+//   };
+
+//   setShowModal(showModal);
+//   const { image } = this.props;
+
+//   return (
+//     <S.GalleryItem>
+//       <S.GalleryImage
+//         src={image.webformatURL}
+//         alt={image.tags}
+//         onClick={this.toggleModal}
+//       />
+//       {showModal && (
+//         <Modal
+//           largeImageURL={image.largeImageURL}
+//           tags={image.tags}
+//           onClose={this.toggleModal}
+//         />
+//       )}
+//     </S.GalleryItem>
+//   );
+// }
+
+// ImageGalleryItem.propTypes = {
+//   image: PropTypes.shape({
+//     webformatURL: PropTypes.string.isRequired,
+//     tags: PropTypes.string.isRequired,
+//     largeImageURL: PropTypes.string.isRequired,
+//   }).isRequired,
+// };
+
 import { Component } from 'react';
 
 import PropTypes from 'prop-types';
