@@ -34,36 +34,19 @@
 //   );
 // }
 
-// ImageGalleryItem.propTypes = {
-//   image: PropTypes.shape({
-//     webformatURL: PropTypes.string.isRequired,
-//     tags: PropTypes.string.isRequired,
-//     largeImageURL: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
-
 import { useState } from 'react';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import * as S from './ImageGalleryItem.styled';
 import { Modal } from 'components/Modal/Modal';
 
 export function ImageGalleryItem({ image }) {
   const [showModal, setShowModal] = useState(false);
-  // state = {
-  //   showModal: false,
-  // };
 
   const toggleModal = () => {
     setShowModal(showModal => !showModal);
-    // this.setState(({ showModal }) => ({
-    //   showModal: !showModal,
-    // }));
   };
-
-  // const { showModal } = this.state;
-  // const { image } = this.props;
 
   return (
     <S.GalleryItem>
@@ -81,10 +64,10 @@ export function ImageGalleryItem({ image }) {
   );
 }
 
-// ImageGalleryItem.propTypes = {
-//   image: PropTypes.shape({
-//     webformatURL: PropTypes.string.isRequired,
-//     tags: PropTypes.string.isRequired,
-//     largeImageURL: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
+ImageGalleryItem.propTypes = {
+  image: PropTypes.shape({
+    webformatURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
+  }).isRequired,
+};
