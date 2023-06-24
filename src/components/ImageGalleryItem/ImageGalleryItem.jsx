@@ -42,51 +42,49 @@
 //   }).isRequired,
 // };
 
-import { Component } from 'react';
+import { useState } from 'react';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import * as S from './ImageGalleryItem.styled';
 import { Modal } from 'components/Modal/Modal';
 
-export class ImageGalleryItem extends Component {
-  state = {
-    showModal: false,
+export function ImageGalleryItem({ image }) {
+  const [showModal, setShowModal] = useState(false);
+  // state = {
+  //   showModal: false,
+  // };
+
+  const toggleModal = () => {
+    setShowModal(showModal => !showModal);
+    // this.setState(({ showModal }) => ({
+    //   showModal: !showModal,
+    // }));
   };
 
-  toggleModal = () => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-    }));
-  };
+  // const { showModal } = this.state;
+  // const { image } = this.props;
 
-  render() {
-    const { showModal } = this.state;
-    const { image } = this.props;
-
-    return (
-      <S.GalleryItem>
-        <S.GalleryImage
-          src={image.webformatURL}
-          alt={image.tags}
-          onClick={this.toggleModal}
-        />
-        {showModal && (
-          <Modal
-            largeImageURL={image.largeImageURL}
-            tags={image.tags}
-            onClose={this.toggleModal}
-          />
-        )}
-      </S.GalleryItem>
-    );
-  }
+  return (
+    <S.GalleryItem>
+      <S.GalleryImage
+        src={image.webformatURL}
+        alt={image.tags}
+        onClick={toggleModal}
+      />
+      {showModal && (
+        <Modal onClose={toggleModal}>
+          <img src={image.largeImageURL} alt={image.tags} />
+        </Modal>
+      )}
+    </S.GalleryItem>
+  );
 }
 
-ImageGalleryItem.propTypes = {
-  image: PropTypes.shape({
-    webformatURL: PropTypes.string.isRequired,
-    tags: PropTypes.string.isRequired,
-    largeImageURL: PropTypes.string.isRequired,
-  }).isRequired,
-};
+// ImageGalleryItem.propTypes = {
+//   image: PropTypes.shape({
+//     webformatURL: PropTypes.string.isRequired,
+//     tags: PropTypes.string.isRequired,
+//     largeImageURL: PropTypes.string.isRequired,
+//   }).isRequired,
+// };
